@@ -4,43 +4,58 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Semangat KP!</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&family=Times+New+Roman&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: 'Times New Roman', serif;
-      background: linear-gradient(to bottom right, #ffc6e4, #ffe6f2);
+      background: url('https://i.pinimg.com/originals/8e/13/f9/8e13f937f2ffec16ab7354fc9a9b3762.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: #b30059;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
       padding: 50px 20px;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
-    h1 {
-      font-family: 'Pacifico', cursive;
-      font-size: 3em;
-      margin-bottom: 20px;
-      animation: fadeInDown 2s ease;
+    h1, h2, p, img {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease;
     }
 
-    p {
-      font-size: 1.3em;
-      max-width: 700px;
-      margin-bottom: 40px;
-      animation: fadeInUp 2s ease;
+    .animate-show h1 {
+      animation: showUp 1s forwards;
     }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      border: 5px dashed #ff99cc;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
-      animation: zoomIn 2s ease;
+    .animate-show h2 {
+      animation: showUp 1s 0.3s forwards;
+    }
+
+    .animate-show p:nth-of-type(1) {
+      animation: showUp 1s 0.6s forwards;
+    }
+
+    .animate-show p:nth-of-type(2) {
+      animation: showUp 1s 0.9s forwards;
+    }
+
+    .animate-show p:nth-of-type(3) {
+      animation: showUp 1s 1.2s forwards;
+    }
+
+    .animate-show img {
+      animation: showUp 1s 1.5s forwards;
+    }
+
+    @keyframes showUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .ribbons {
@@ -66,7 +81,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: #ffe6f2;
+      background: rgba(255, 230, 242, 0.9);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -86,29 +101,18 @@
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
 
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes zoomIn {
-      from { opacity: 0; transform: scale(0.8); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
     @media (max-width: 600px) {
-      h1 {
-        font-size: 2em;
-      }
+      h1 { font-size: 2em; }
+      h2 { font-size: 1.3em; }
+      p { font-size: 1em; }
+    }
 
-      p {
-        font-size: 1em;
-      }
+    img {
+      max-width: 100%;
+      height: auto;
+      border: 5px dashed #ff99cc;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
     }
   </style>
 </head>
@@ -119,7 +123,7 @@
   </div>
 
   <audio id="bg-music" loop>
-    <source src="https://cdn.pixabay.com/audio/2022/08/19/audio_c86d8d7e70.mp3" type="audio/mpeg">
+    <source src="motivasi.mp4" type="audio/mp4">
     Your browser does not support the audio element.
   </audio>
 
@@ -127,14 +131,22 @@
     <div class="ribbon"></div>
     <div class="ribbon"></div>
   </div>
-  <h1>KP & seminar emang chaos, tapi you’re built different. Stay strong, sip kopi, and slay that stage!</h1>
-  <p>You got this, pejuang KP! Walau otak udah full storage dan ngantuk jadi sahabat, ingat: every struggle kamu hari ini adalah blueprint buat future kamu nanti. Shine bright di seminar, show them what you’re made of!💖</p>
-  <img src="foto-kp.jpg" alt="Foto KP" />
+
+  <main id="content">
+    <h1>KP & seminar emang chaos, tapi you’re built different</h1>
+    <h2>Stay strong, sip kopi, and slay that stage!</h2>
+    <p>you got this, pejuang KP OS'22! Walau otak udah full storage dan ngantuk jadi sahabat,</p>
+    <p>ingat: every struggle kamu hari ini adalah blueprint buat future kamu nanti.</p>
+    <p>shine bright di seminar, show them what you’re made of!💖</p>
+    <img src="foto-kp.jpg" alt="Foto KP" />
+  </main>
 
   <script>
     function startSite() {
       document.getElementById('opening').style.display = 'none';
-      document.getElementById('bg-music').play();
+      const audio = document.getElementById('bg-music');
+      audio.play().catch(err => console.warn("Autoplay failed:", err));
+      document.getElementById('content').classList.add('animate-show');
     }
   </script>
 </body>
