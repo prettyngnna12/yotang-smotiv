@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semangat KP!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&family=Times+New+Roman&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Times New Roman', serif;
+      background: linear-gradient(to bottom right, #ffc6e4, #ffe6f2);
+      color: #b30059;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 50px 20px;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3em;
+      margin-bottom: 20px;
+      animation: fadeInDown 2s ease;
+    }
+
+    p {
+      font-size: 1.3em;
+      max-width: 700px;
+      margin-bottom: 40px;
+      animation: fadeInUp 2s ease;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border: 5px dashed #ff99cc;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
+      animation: zoomIn 2s ease;
+    }
+
+    .ribbons {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 30px;
+      z-index: 1;
+    }
+
+    .ribbon {
+      width: 70px;
+      height: 70px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/4/4f/Pink_Ribbon.svg') no-repeat center/contain;
+    }
+
+    #opening {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #ffe6f2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    #opening button {
+      padding: 15px 30px;
+      background-color: #ff66b2;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2em;
+      cursor: pointer;
+      font-family: 'Quicksand', sans-serif;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes zoomIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="opening">
+    <h1>Capek? Wajar. Nyerah? Jangan!</h1>
+    <button onclick="startSite()">Inject Motivasi 💉</button>
+  </div>
+
+  <audio id="bg-music" loop>
+    <source src="https://cdn.pixabay.com/audio/2022/08/19/audio_c86d8d7e70.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="ribbons">
+    <div class="ribbon"></div>
+    <div class="ribbon"></div>
+  </div>
+  <h1>KP & seminar emang chaos, tapi you’re built different. Stay strong, sip kopi, and slay that stage!</h1>
+  <p>You got this, pejuang KP! Walau otak udah full storage dan ngantuk jadi sahabat, ingat: every struggle kamu hari ini adalah blueprint buat future kamu nanti. Shine bright di seminar, show them what you’re made of!💖</p>
+  <img src="foto-kp.jpg" alt="Foto KP" />
+
+  <script>
+    function startSite() {
+      document.getElementById('opening').style.display = 'none';
+      document.getElementById('bg-music').play();
+    }
+  </script>
+</body>
+</html>
